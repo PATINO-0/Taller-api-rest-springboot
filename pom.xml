@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Archivo principal de Maven para administrar dependencias y construcción del proyecto. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Versión del modelo de configuración de Maven. -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Proyecto padre de Spring Boot que simplifica versiones y plugins. -->
+    <parent>
+        <!-- Grupo oficial de Spring Boot. -->
+        <groupId>org.springframework.boot</groupId>
+
+        <!-- Artefacto padre de Spring Boot. -->
+        <artifactId>spring-boot-starter-parent</artifactId>
+
+        <!-- Versión de Spring Boot usada para el proyecto. -->
+        <version>3.3.0</version>
+
+        <!-- Se deja vacío porque no hay un padre local. -->
+        <relativePath/>
+    </parent>
+
+    <!-- Identificador del grupo del proyecto. -->
+    <groupId>com.biblioteca</groupId>
+
+    <!-- Identificador del artefacto generado. -->
+    <artifactId>biblioteca-api</artifactId>
+
+    <!-- Versión inicial del proyecto. -->
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- Tipo de empaquetado del proyecto. -->
+    <packaging>jar</packaging>
+
+    <!-- Nombre visible del proyecto en Maven y NetBeans. -->
+    <name>biblioteca-api</name>
+
+    <!-- Descripción general del proyecto. -->
+    <description>API REST para gestionar libros y usuarios de una biblioteca</description>
+
+    <!-- Propiedades generales del proyecto. -->
+    <properties>
+        <!-- Versión de Java requerida para compilar y ejecutar la aplicación. -->
+        <java.version>17</java.version>
+
+        <!-- Codificación usada por el proyecto para evitar errores con tildes y caracteres especiales. -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Clase principal que NetBeans y Maven deben ejecutar. -->
+        <start-class>com.biblioteca.BibliotecaApiApplication</start-class>
+    </properties>
+
+    <!-- Dependencias necesarias para la API REST. -->
+    <dependencies>
+
+        <!-- Dependencia para crear controladores REST y endpoints HTTP. -->
+        <dependency>
+            <!-- Grupo de la dependencia Spring Web. -->
+            <groupId>org.springframework.boot</groupId>
+
+            <!-- Artefacto que incluye Spring MVC y servidor embebido. -->
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Dependencia para conectar Spring Boot con MongoDB. -->
+        <dependency>
+            <!-- Grupo de la dependencia Spring Data MongoDB. -->
+            <groupId>org.springframework.boot</groupId>
+
+            <!-- Artefacto que permite usar MongoRepository y anotaciones MongoDB. -->
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+        <!-- Dependencia para validar datos de entrada en los DTOs. -->
+        <dependency>
+            <!-- Grupo de la dependencia de validación. -->
+            <groupId>org.springframework.boot</groupId>
+
+            <!-- Artefacto que permite usar @NotBlank, @NotNull, @Min, entre otros. -->
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- Dependencia para ejecutar pruebas automatizadas del proyecto. -->
+        <dependency>
+            <!-- Grupo de pruebas de Spring Boot. -->
+            <groupId>org.springframework.boot</groupId>
+
+            <!-- Artefacto de pruebas de Spring Boot. -->
+            <artifactId>spring-boot-starter-test</artifactId>
+
+            <!-- Alcance limitado únicamente a pruebas. -->
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Configuración de plugins de construcción. -->
+    <build>
+        <!-- Lista de plugins usados por Maven. -->
+        <plugins>
+
+            <!-- Plugin que permite ejecutar y empaquetar la aplicación Spring Boot. -->
+            <plugin>
+                <!-- Grupo oficial del plugin de Spring Boot. -->
+                <groupId>org.springframework.boot</groupId>
+
+                <!-- Artefacto del plugin de Maven para Spring Boot. -->
+                <artifactId>spring-boot-maven-plugin</artifactId>
+
+                <!-- Configuración del plugin de Spring Boot. -->
+                <configuration>
+                    <!-- Clase principal que se usará al ejecutar o empaquetar la aplicación. -->
+                    <mainClass>${start-class}</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin usado por NetBeans para ejecutar la clase principal desde Maven. -->
+            <plugin>
+                <!-- Grupo oficial del plugin exec de Maven. -->
+                <groupId>org.codehaus.mojo</groupId>
+
+                <!-- Artefacto que permite ejecutar clases Java desde Maven. -->
+                <artifactId>exec-maven-plugin</artifactId>
+
+                <!-- Versión del plugin exec usada por NetBeans. -->
+                <version>3.1.0</version>
+
+                <!-- Configuración del plugin exec. -->
+                <configuration>
+                    <!-- Clase principal que NetBeans debe ejecutar. -->
+                    <mainClass>${start-class}</mainClass>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

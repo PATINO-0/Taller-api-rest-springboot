@@ -1,0 +1,13 @@
+# Carpeta generada por Maven al compilar el proyecto.
+target/
+
+# Archivos temporales de NetBeans.
+nbproject/private/
+
+# Archivos temporales de IntelliJ IDEA.
+.idea/
+*.iml
+
+# Archivos temporales del sistema operativo.
+.DS_Store
+Thumbs.db
